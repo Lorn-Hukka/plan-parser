@@ -23,16 +23,16 @@ with open("data", 'r', encoding="UTF-8") as f:
         classes.update(d)
 
 
-# for c, cid in classes.items():
-#     print(c, cid)
+for c, cid in classes.items():
+    print(c, cid)
 
-#     new_c = c.replace('/', '_')
+    new_c = c.replace('/', '_')
 
-#     with open(f'plans/plan-{new_c}.ics', 'wb+') as f:
-#         r = requests.get(_url + str(cid))
-#         for chunk in r.iter_content(chunk_size=512 * 1024):
-#             if chunk:
-#                 f.write(chunk)
+    with open(f'plans/plan-{new_c}.ics', 'wb+') as f:
+        r = requests.get(_url + str(cid))
+        for chunk in r.iter_content(chunk_size=512 * 1024):
+            if chunk:
+                f.write(chunk)
 
 _plan = {f"w{week:02d}": {} for week in range(53)}
 
